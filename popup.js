@@ -8,6 +8,3 @@ document.addEventListener("mousedown", function(){
 	console.log("Wha");
 	document.getElementById("text").value = "tweet";
 });
-
-
-// document.getElementById("text").val('test');
