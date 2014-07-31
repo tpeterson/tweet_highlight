@@ -6,3 +6,8 @@ chrome.runtime.onMessage.addListener(
 
 
 */
+
+chrome.runtime.onMessage.addListener(
+	function(msg, sender) {
+    chrome.pageAction.show(sender.tab.id);
+});

@@ -5,13 +5,13 @@
   "description": "This extension autopopulates a tweet with the selected text.",
   "version": "1.0",
 "background": {
-    "scripts": ["eventPage.js", "popup.js"],
+    "scripts": ["eventPage.js"],
     "persistent": false
   },
   "permissions": [
    "activeTab",
    "chrome://favicon/",
-   "http://*/*", 
+   "http://*/*",
    "https://*/*"
  ],
   "browser_action": {
@@ -22,15 +22,8 @@
   {
     "matches": ["http://*/*"],
     "js": ["content_script.js"],
-    "run_at": "document_start",
+    "run_at": "document_idle",
     "all_frames": true
   }
  ]
 }
-
-
-
-
-
-
-	
