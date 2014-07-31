@@ -22,7 +22,7 @@ function saveSelection() {
 */
 
 document.addEventListener('mouseup', saveTweet);
-
+// SAVES SELECTED TEXT
 function saveSelection() {
 	if (window.getSelection) {
 		var sel = window.getSelection();
@@ -32,25 +32,24 @@ function saveSelection() {
 		}
 	}
 }
-
+//SAVES SELECTED TEXT TO A STRING THEN STORES THAT IN A VARIABLE
 function saveTweet(){
 	var tweet = saveSelection();
 	var highlight = tweet.toString();
 	console.log("Yep again");
 	return highlight;
 }
-
+/*MESSAGE TO EVENTPAGE.JS, UNNECESSARY FOR THIS
 chrome.runtime.sendMessage({
     from:    'content',
     subject: 'showPageAction'
 });
-
-/* Listen for message from the popup */
+*/
+/* GRABS MESSAGE FROM POPUP.JS */
 chrome.runtime.onMessage.addListener(function(msg, sender, response) {
-    /* First, validate the message's structure */
+    //MAKE SURE CORRECT MESSAGE
     if ((msg.from === 'popup') && (msg.subject === 'DOMInfo')) {
-        /* Directly respond to the sender (popup),
-         * through the specified callback */
+        //CALLBACK THAT RESPONDS TO POPUP.JS WITH SELECTED TEXT AS ARGUMENT
         response(saveTweet());
     }
 });

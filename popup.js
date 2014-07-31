@@ -11,23 +11,22 @@ document.addEventListener("mousedown", function() {
 });
 */
 
-/* Update the relevant fields with the new data */
-function setDOMInfo(text) {
+//SWAP OUT AUTOPOPULATED TEXT WITH SELECTED TEXT IN POPUP.HTML
+function setTweet(text) {
 		document.getElementById("text").value = text;
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-    /* ...query for the active tab... */
+    //LOOKS FOR ACTIVE TAB
     chrome.tabs.query({
         active: true,
         currentWindow: true
     }, function(tabs) {
-        /* ...and send a request for the DOM info... */
+        //SENDS MESSAGE TO ACTIVE TAB (CONTENT_SCRIPT.JS) ASKING FOR SELECTED TEXT
         chrome.tabs.sendMessage(
                 tabs[0].id,
                 {from: 'popup', subject: 'DOMInfo'},
-                /* ...also specifying a callback to be called
-                 *    from the receiving end (content script) */
-                setDOMInfo);
+                //DESIGNATING CALLBACK THAT CONTENT_SCRIPT.JS WILL RUN IN RESPONSE
+                setTweet);
     });
 });
