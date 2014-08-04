@@ -1,19 +1,7 @@
-/*
-chrome.runtime.onMessage.addListener(
-	function(request, sender, sendResponse) {
-		sendResponse({farewell: request.greeting.toString()});
-});
-
-
-document.addEventListener("mousedown", function() {
-	console.log("Wha");
-	document.getElementById("text").value = "tweet";
-});
-*/
-
 //SWAP OUT AUTOPOPULATED TEXT WITH SELECTED TEXT IN POPUP.HTML
 function setTweet(text) {
-		document.getElementById("text").value = text;
+		//OPEN TWITTER SHARE WINDOW AND POPULATE WITH SELECTED TEXT AND LINK COLLECTED BY CONTENTSCRIPT.JS
+		window.open('https://twitter.com/intent/tweet?text=' + text, 'shareWindow', 'width=350,height=250,top=50,left=50');
 }
 
 window.addEventListener('DOMContentLoaded', function() {
