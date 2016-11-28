@@ -3,7 +3,7 @@
 
   "name": "Tweet Highlight",
   "description": "This extension autopopulates a tweet with the selected text.",
-  "version": "1.1",
+  "version": "1.1.1",
   "background": {
     "scripts": ["eventPage.js"],
     "persistent": false
