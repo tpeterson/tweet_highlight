@@ -1,7 +1,8 @@
 //SWAP OUT AUTOPOPULATED TEXT WITH SELECTED TEXT IN POPUP.HTML
 function setTweet(text) {
-		//OPEN TWITTER SHARE WINDOW AND POPULATE WITH SELECTED TEXT AND LINK COLLECTED BY CONTENTSCRIPT.JS
-		window.open('https://twitter.com/intent/tweet?text=' + text, 'shareWindow', 'width=350,height=250,top=50,left=50');
+    chrome.tabs.create({
+      url: 'https://twitter.com/intent/tweet?text=' + text
+    });
 }
 
 window.addEventListener('DOMContentLoaded', function() {
